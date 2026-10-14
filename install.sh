@@ -8,6 +8,11 @@ cp -r User/. "$U/"
 cp icons/*.svg "$HOME/.local/share/icons/hicolor/scalable/apps/"
 cp applications/*.desktop "$HOME/.local/share/applications/"
 codium --install-extension theme/odivm-graphite-1.0.0.vsix
-grep -v '^odivm\.' extensions.txt | cut -d@ -f1 | while read -r ext; do
-    codium --install-extension "$ext"
+TAG="extensions-2026-10-14"
+TMP="$(mktemp -d)"
+gh release download "$TAG" -R caedvx/vscodium-config -D "$TMP" -p '*.vsix'
+for v in "$TMP"/*.vsix; do
+    codium --install-extension "$v" --force
 done
+rm -rf "$TMP"
+codium --install-extension anthropic.claude-code
