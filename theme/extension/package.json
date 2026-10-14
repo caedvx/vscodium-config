@@ -1,0 +1,22 @@
+{
+  "name": "odivm-graphite",
+  "displayName": "ODIVM Graphite",
+  "publisher": "odivm",
+  "description": "Graphite: black, white and greys, from odivm.com",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "ODIVM Graphite",
+        "uiTheme": "vs-dark",
+        "path": "./themes/odivm-graphite-color-theme.json"
+      }
+    ]
+  }
+}
